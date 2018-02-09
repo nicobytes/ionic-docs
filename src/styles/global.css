@@ -1,0 +1,113 @@
+:root {
+  --font-family-avenir: 'Avenir Next', 'Helvetica Neue', Helvetica, sans-serif;
+  --font-family-eina: 'Eina', 'Helvetica Neue', Helvetica, sans-serif;
+  --font-family-code: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+
+  --blue: #3880ff;
+
+  --blacker:    #16161d;
+  --blackish:   #24282e;
+  --darker:     #333;
+  --dark:       #3c4b62;
+  --darkish:    #545d69;
+  --dark-gray:  #71757c;
+  --gray:       #808d9f;
+  --light-gray: #abb2bf;
+  --whiteish:   #edf2f6;
+  --whiter:     #f6f8fc;
+
+  --header-color: #b1d9ff;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: --blackish;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 20px;
+  padding-top: 48px;
+  margin-top: -24px;
+  margin-bottom: .9em;
+}
+
+h3 {
+  padding-top: 4em;
+  margin-top: -2em;
+  font-size: 16px;
+  letter-spacing: -.025em;
+  margin-bottom: 1.3em;
+}
+
+p,
+ul {
+  color: --dark;
+  font-size: 14px;
+  letter-spacing: -.02em;
+  line-height: 2em;
+  margin-bottom: 2.16em;
+  font-weight: 400;
+}
+
+ul {
+  padding: 1px 0 14px 17px;
+}
+
+li {
+  margin-bottom: 1.08em;
+}
+
+a,
+stencil-route-link {
+  color: --blue;
+  text-decoration: none;
+  font-weight: 600;
+  transition: .2s color ease;
+}
+
+a:hover,
+stencil-route-link:hover {
+  color: #619aff;
+}
+
+stencil-route-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+pre {
+  word-break: break-all;
+  word-wrap: break-word;
+  display: block;
+  white-space: pre-wrap;
+  margin: 24px 0px 28px;
+  padding: 16px 24px;
+  border-radius: 4px;
+  color: --light-gray;
+  background-color: --blacker;
+  font-family: --font-family-code;
+}
+
+pre code {
+  font-weight: 500;
+  display: block;
+  overflow-x: auto;
+  word-wrap: normal;
+  white-space: pre;
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+code {
+  font-weight: 400;
+  font-family: --font-family-code;
+  font-size: 14px;
+}

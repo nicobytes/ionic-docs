@@ -2,10 +2,12 @@ import { Component, State } from '@stencil/core';
 
 @Component({
   tag: 'dropdown-ecosystem',
-  styleUrl: 'dropdown-ecosystem.scss'
+  styleUrl: 'dropdown-ecosystem.css',
+  // shadow: true
+  scoped: true
 })
 export class DropdownFramework {
-  @State() active: boolean = false;
+  @State() active: boolean = true;
 
   constructor() {
     this.toggle = this.toggle.bind(this)
@@ -17,7 +19,7 @@ export class DropdownFramework {
   }
 
   clear() {
-    this.active = false;
+    // this.active = false;
   }
 
   render() {

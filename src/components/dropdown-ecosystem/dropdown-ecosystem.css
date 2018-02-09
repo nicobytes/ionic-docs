@@ -1,0 +1,129 @@
+
+.current {
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 1em;
+  font-weight: 600;
+  margin-right: 28px;
+  color: var(--header-color);
+  letter-spacing: .01em;
+  display: inline-block;
+  vertical-align: 0;
+  transition: .2s color ease;
+}
+
+.current::after {
+  content: '';
+  margin-left: 8px;
+  display: inline-block;
+  vertical-align: middle;
+  border-left: 2px solid transparent;
+  border-right: 2px solid transparent;
+  border-top: 3px solid var(--header-color);
+  transition: .2s border-top-color ease;
+}
+
+.current:hover {
+  color: white;
+  text-shadow: 0 1px 2px rgba(black, .1);
+}
+.current:hover::after {
+  border-top-color: white;
+}
+
+ul {
+  background: white;
+  border-radius: 8px;
+  position: absolute;
+  list-style: none;
+  min-width: 197px;
+  display: block;
+  padding: 11px 0;
+  z-index: 1;
+  top: 24px;
+  right: 26px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-5px);
+  box-shadow:
+    0 4px 14px rgba(42, 58, 87, 0.12),
+    0 16px 32px rgba(42, 58, 87, 0.1);
+  transition: .4s opacity ease, .4s transform;
+}
+
+ul::before {
+  background: url('/assets/img/ico-nav-arrow.png') no-repeat 0 0;
+  background-size: 15px;
+  width: 15px;
+  height: 8px;
+  position: absolute;
+  top: -8px;
+  right: 91px;
+  content: '';
+}
+
+ul::after {
+  content: '';
+  height: 10px;
+  left: 0;
+  right: 0;
+  top: -10px;
+  position: absolute;
+}
+
+ul.active {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+  transition: .2s opacity ease, .4s transform;
+}
+
+li {
+  display: block;
+}
+
+li a {
+  padding: 4px 12px 4px 57px;
+  color: var(--gray);
+  outline: none;
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  position: relative;
+}
+
+li a::before,
+li a::after {
+  background: url('/assets/img/dropdown-ecosystem-icons.png') no-repeat 0 0;
+  background-size: 16px;
+  height: 16px;
+  width: 16px;
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 24px;
+  transition: .2s opacity;
+}
+
+li a::after {
+  opacity: 0;
+}
+
+li a:hover::after {
+  opacity: 1;
+}
+
+li.forum a::after {
+  background-position: 0 -16px;
+}
+
+.chat a::before { background-position: 0 -32px; }
+.chat a::after  { background-position: 0 -48px; }
+.blog a::before { background-position: 0 -64px; }
+.blog a::after  { background-position: 0 -80px; }
+.twitter a::before {background-position: 0 -96px;}
+.twitter a::after {background-position: 0 -112px;}
+.stack-overflow a::before {background-position: 0 -128px;}
+.stack-overflow a::after {background-position: 0 -144px;}
+.swag a::before {background-position: 0 -160px;}
+.swag a::after {background-position: 0 -176px;}
