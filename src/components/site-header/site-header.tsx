@@ -14,7 +14,13 @@ export class SiteHeader {
 
   renderFrameworkDropdown = dropdown => {
     return [
-      <a class="current" onClick={dropdown.toggle}><strong>Docs</strong> {dropdown.selected.title}</a>,
+      <div class="framework-toggle">
+        <a class="framework-toggle__prefix" href="/docs">Docs</a>
+        <a class="framework-toggle__select" onClick={dropdown.toggle}>
+          {dropdown.selected.title}
+          <svg viewBox="0 0 33 22"><polygon points="16.5 22 0 0 33 0"></polygon></svg>
+        </a>
+      </div>,
       <ul class={{ 'active': dropdown.isOpen }}>
         {dropdown.items.map(item =>
           <li class={{

@@ -1,43 +1,43 @@
+/**
+ * Framework Toggle
+ */
+.framework-toggle {
+  color: inherit;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  padding-top: 2px;
+  user-select: none;
+}
+
+.framework-toggle__prefix {
+  color: white;
+  font-weight: 700;
+  margin-left: 6px;
+  margin-right: 8px;
+}
+
+.framework-toggle__select {
+  cursor: pointer;
+  transition: color 150ms ease;
+}
+
+.framework-toggle__select:hover {
+  color: white;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.framework-toggle__select > svg {
+  fill: currentColor;
+  padding-left: 8px;
+  vertical-align: middle;
+  width: 6px;
+}
+
+
 .framework-dropdown {
   flex-grow: 1;
   position: relative;
-
-  .current {
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: 600;
-    margin-left: 8px;
-    line-height: 1em;
-    color: var(--header-color);
-    display: inline-block;
-    letter-spacing: -.02em;
-    vertical-align: text-top;
-    transition: 150ms color ease;
-
-    strong {
-      color: white;
-    }
-
-    &::after {
-      content: '';
-      margin-left: 8px;
-      display: inline-block;
-      vertical-align: middle;
-      border-left: 3px solid transparent;
-      border-right: 3px solid transparent;
-      border-top: 4px solid var(--header-color);
-      transition: 150ms border-top-color ease;
-    }
-
-    &:hover {
-      color: white;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, .1);
-
-      &::after {
-        border-top-color: white;
-      }
-    }
-  }
 
   ul {
     background: white;
