@@ -21,22 +21,35 @@ export class SiteHeader {
           <svg viewBox="0 0 33 22"><polygon points="16.5 22 0 0 33 0"></polygon></svg>
         </a>
       </div>,
-      <ul class={{ 'active': dropdown.isOpen }}>
-        {dropdown.items.map(item =>
+      <ul class={{ 'framework-panel': true, 'is-active': dropdown.isOpen }}>
+        { dropdown.items.map(item => 
           <li class={{
-            [item.className]: true,
-            'active': dropdown.selected === item,
-            'sm': item.small
-          }}>
-            <a href={item.url}>
-              <strong>{item.title}</strong>
-              <span>{item.subtitle}</span>
-              { item.category ? null : <NewTab/> }
-            </a>
-          </li>
+            'framework-dropdown-item': true,
+            'is-external': item.external,
+            'is-active': dropdown.selected === item
+          }}>{ this.renderFrameworkDropdownItem(item, dropdown) }</li>
         )}
       </ul>
     ];
+  }
+
+  renderFrameworkDropdownItem = (item, dropdown) => {
+    if (item.external) {
+      return (
+        <a href={item.url} target="_blank">
+          <strong>{ item.title }</strong>
+          <span>{ item.subtitle } <NewTab/></span>
+        </a>
+      );
+    }
+    return (
+      <stencil-route-link
+        url={item.url}
+        onClick={() => dropdown.select(item)}>
+          <strong>{ item.title }</strong>
+          <span>{ item.subtitle }</span>
+      </stencil-route-link>
+    );
   }
 
   renderEcosystemDropdown = dropdown => {
@@ -93,37 +106,33 @@ const frameworkDropdownItems = [
     title: 'Framework',
     subtitle: 'The UI Toolkit for building highly performant apps',
     url: '/docs',
-    category: 'framework',
     className: 'framework'
   },
   {
     title: 'Pro',
     subtitle: 'Integrated suite of tools & services for shipping apps',
     url: '/docs/pro',
-    category: 'pro',
     className: 'pro'
   },
   {
     title: 'CLI',
     subtitle: 'Ionic command line interface tool',
     url: '/docs/cli',
-    category: 'cli',
     className: 'cli',
-    small: true
   },
   {
     title: 'Capacitor',
     subtitle: 'Cross-platform Native SDK Container',
     url: 'https://capacitor.ionicframework.com/',
     className: 'capacitor',
-    small: true
+    external: true
   },
   {
     title: 'Stencil',
     subtitle: 'Reusable web component compiler',
     url: 'https://stenciljs.com/',
     className: 'stencil',
-    small: true
+    external: true
   }
 ];
 

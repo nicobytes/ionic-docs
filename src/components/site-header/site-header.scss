@@ -35,7 +35,18 @@ a {
 
 
 /**
- * Mobile Nav Toggle
+ * Optical centering
+ */
+
+.ecosystem-dropdown,
+.framework-toggle,
+.github-link {
+  padding-top: 2px;
+}
+
+
+/**
+ * Mobile nav toggle
  */
 .nav-toggle {
   background-color: transparent;
@@ -65,7 +76,7 @@ a {
 
 
 /**
- * Docs Logo
+ * Docs logo
  */
 .docs-logo {
   display: flex;
@@ -85,7 +96,7 @@ a {
 
 
 /**
- * GitHub Link
+ * GitHub link
  */
 .github-link {
   color: rgba(255, 255, 255, .7);
@@ -102,7 +113,7 @@ a {
 
 
 /**
- * New Tab Icon
+ * New tab icon
  */
 .new-tab {
   height: 0.8em;
