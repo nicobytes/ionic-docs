@@ -2,6 +2,86 @@ import { Component, Prop } from '@stencil/core';
 import { SECTION_FRAMEWORK, SECTION_CLI } from '../../constants';
 import { Close, Ionic, Menu, NewTab } from '../../icons';
 
+@Component({
+  tag: 'site-header',
+  styleUrl: 'site-header.scss',
+  shadow: true
+})
+export class SiteHeader {
+  @Prop() currentSection: string;
+  @Prop() onToggleClick: () => void;
+  @Prop() isMenuOpen: boolean;
+
+  renderFrameworkDropdown = dropdown => {
+    return [
+      <a class="current" onClick={dropdown.toggle}><strong>Docs</strong> {dropdown.selected.title}</a>,
+      <ul class={{ 'active': dropdown.isOpen }}>
+        {dropdown.items.map(item =>
+          <li class={{
+            [item.className]: true,
+            'active': dropdown.selected === item,
+            'sm': item.small
+          }}>
+            <a href={item.url}>
+              <strong>{item.title}</strong>
+              <span>{item.subtitle}</span>
+              { item.category ? null : <NewTab/> }
+            </a>
+          </li>
+        )}
+      </ul>
+    ];
+  }
+
+  renderEcosystemDropdown = dropdown => {
+    return [
+      <a class="current" onClick={dropdown.toggle}>Ecosystem</a>,
+      <ul class={{ 'active': dropdown.isOpen }}>
+        {dropdown.items.map(item => (
+          <li class={item.className}>
+            <a href={item.url} target="_blank">{item.text}</a>
+          </li>
+        ))}
+      </ul>
+    ];
+  }
+
+  getGithubLink() {
+    switch (this.currentSection) {
+      case SECTION_CLI:
+        return "https://github.com/ionic-team/ionic-cli";
+      case SECTION_FRAMEWORK:
+      default:
+        return "https://github.com/ionic-team/ionic";
+    }
+  }
+
+  render() {
+    return (
+      <nav>
+        <button
+          onClick={this.onToggleClick}
+          class={{ 'nav-toggle': true, 'is-open': this.isMenuOpen }}>
+            { this.isMenuOpen ? <Close/> : <Menu/> }
+        </button>
+        <a href="/docs" class="docs-logo"><Ionic/></a>
+        <ctrl-dropdown
+          class="framework-dropdown"
+          autoClose
+          items={frameworkDropdownItems}
+          renderer={this.renderFrameworkDropdown}/>
+        <site-search/>
+        <ctrl-dropdown
+          class="ecosystem-dropdown"
+          autoClose
+          items={ecosystemDropdownItems}
+          renderer={this.renderEcosystemDropdown}/>
+        <a href={this.getGithubLink()} class="github-link" target="_blank">GitHub<NewTab/></a>
+      </nav>
+    );
+  }
+}
+
 const frameworkDropdownItems = [
   {
     title: 'Framework',
@@ -74,81 +154,3 @@ const ecosystemDropdownItems = [
   }
 ];
 
-@Component({
-  tag: 'site-header',
-  styleUrl: 'site-header.scss'
-})
-export class SiteHeader {
-  @Prop() currentSection: string;
-  @Prop() onToggleClick: () => void;
-  @Prop() isMenuOpen: boolean;
-
-  renderFrameworkDropdown = dropdown => {
-    return [
-      <a class="current" onClick={dropdown.toggle}><strong>Docs</strong> {dropdown.selected.title}</a>,
-      <ul class={{ 'active': dropdown.isOpen }}>
-        {dropdown.items.map(item =>
-          <li class={{
-            [item.className]: true,
-            'active': dropdown.selected === item,
-            'sm': item.small
-          }}>
-            <a href={item.url}>
-              <strong>{item.title}</strong>
-              <span>{item.subtitle}</span>
-              { item.category ? null : <NewTab/> }
-            </a>
-          </li>
-        )}
-      </ul>
-    ];
-  }
-
-  renderEcosystemDropdown = dropdown => {
-    return [
-      <a class="current" onClick={dropdown.toggle}>Ecosystem</a>,
-      <ul class={{ 'active': dropdown.isOpen }}>
-        {dropdown.items.map(item => (
-          <li class={item.className}>
-            <a href={item.url} target="_blank">{item.text}</a>
-          </li>
-        ))}
-      </ul>
-    ];
-  }
-
-  getGithubLink() {
-    switch (this.currentSection) {
-      case SECTION_CLI:
-        return "https://github.com/ionic-team/ionic-cli";
-      case SECTION_FRAMEWORK:
-      default:
-        return "https://github.com/ionic-team/ionic";
-    }
-  }
-
-  render() {
-    return (
-      <nav>
-        <button
-          onClick={this.onToggleClick}
-          class={{ 'site-nav-toggle': true, 'is-open': this.isMenuOpen }}>
-            { this.isMenuOpen ? <Close/> : <Menu/> }
-        </button>
-        <a href="/docs" id="site-logo"><Ionic/></a>
-        <ctrl-dropdown
-          class="framework-dropdown"
-          autoClose
-          items={frameworkDropdownItems}
-          renderer={this.renderFrameworkDropdown}/>
-        <site-search/>
-        <ctrl-dropdown
-          class="ecosystem-dropdown"
-          autoClose
-          items={ecosystemDropdownItems}
-          renderer={this.renderEcosystemDropdown}/>
-        <a href={this.getGithubLink()} class="github" target="_blank">GitHub <NewTab/></a>
-      </nav>
-    );
-  }
-}

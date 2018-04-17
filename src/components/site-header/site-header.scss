@@ -1,40 +1,109 @@
 @import './framework-dropdown';
 @import './ecosystem-dropdown';
 
-ionic-docs.section-pro {
-  site-header {
-    background-color: black;
+
+/**
+ * site-header
+ */
+:host {
+  align-self: stretch;
+  background-color: var(--blue);
+  color: var(--header-color);
+  font-family: var(--font-family-eina);
+  grid-area: header;
+  padding-left: 2rem;
+  padding-right: 1.2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
+  @media (max-width: $breakpoint-md)  {
+    padding-left: 24px;
+    padding-right: 32px;
   }
 }
 
-ionic-docs.section-cli {
-  site-header {
-    background-color: white;
+nav {
+  align-items: center;
+  display: flex;
+  height: 100%;
+}
 
-    /* TODO: might be able to inherit color here somehow */
-    a {
-      color: black;
-
-      &:hover {
-        color: #141414;
-      }
-    }
-  }
-
-  #site-logo {
-    svg > path {
-      fill: var(--blue);
-    }
-  }
+a {
+  text-decoration: none;
 }
 
 
+/**
+ * Mobile Nav Toggle
+ */
+.nav-toggle {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  height: 1rem;
+  margin-right: 1em;
+  padding: 0;
+  width: 1rem;
+
+  @media (min-width: 700px) {
+    display: none;
+  }
+}
+
+.nav-toggle:focus {
+  outline: none;
+}
+
+.nav-toggle.is-open {
+  color: white;
+}
+
+.nav-toggle > svg {
+  fill: currentColor;
+}
+
+
+/**
+ * Docs Logo
+ */
+.docs-logo {
+  display: flex;
+  width: 24px;
+  height: 24px;
+  transition: opacity 200ms ease;
+}
+
+.docs-logo:hover {
+  opacity: 0.9;
+}
+
+.docs-logo > svg {
+  fill: white;
+  width: 100%;
+}
+
+
+/**
+ * GitHub Link
+ */
+.github-link {
+  color: rgba(255, 255, 255, .7);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-left: 28px;
+  transition: color 200ms ease;
+}
+
+.github-link:hover {
+  color: white;
+}
 
 
 /**
  * New Tab Icon
  */
-
 .new-tab {
   height: 0.8em;
   margin-left: 0.4em;
@@ -60,118 +129,4 @@ a:hover .new-tab__box {
 
 a:hover .new-tab__arrow {
   fill: white;
-}
-
-
-
-
-site-header {
-  align-items: center;
-  align-self: stretch;
-  background-color: var(--blue);
-  color: var(--header-color);
-  font-family: var(--font-family-eina);
-  grid-area: header;
-  padding-left: 2rem;
-  padding-right: 1.2rem;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-
-  @media (max-width: $breakpoint-md)  {
-    padding-left: 24px;
-    padding-right: 32px;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  p,
-  li {
-    color: var(--header-color);
-    margin: 0;
-  }
-
-  nav {
-    align-items: center;
-    display: flex;
-    height: 100%;
-    width: 100%;
-  }
-
-  #site-logo {
-    display: flex;
-    width: 24px;
-    height: 24px;
-    transition: opacity 200ms ease;
-
-    > svg {
-      fill: white;
-      width: 100%;
-    }
-
-    &:hover {
-      opacity: .9;
-    }
-  }
-
-  .github {
-    font-size: 13px;
-    margin: 2px 0 0 28px;
-    font-weight: 600;
-    display: inline-block;
-    letter-spacing: -.02em;
-    color: rgba(255, 255, 255, .7);
-    transition: .2s color ease;
-    position: relative;
-
-    &:hover {
-      color: rgba(255, 255, 255, 1);
-    }
-  }
-
-  @media (max-width: 340px)  {
-    ctrl-dropdown {
-      display: none;
-    }
-  }
-
-  @media (max-width: 640px)  {
-    site-search {
-      display: none;
-    }
-  }
-
-  @media (max-width: 700px)  {
-    .github {
-      display: none;
-    }
-  }
-}
-
-.site-nav-toggle {
-  background-color: transparent;
-  border: none;
-  color: inherit;
-  height: 1rem;
-  margin-right: 1em;
-  padding: 0;
-  width: 1rem;
-
-  &:focus {
-    outline: none;
-  }
-
-  @media (min-width: 700px) {
-    display: none;
-  }
-}
-
-.site-nav-toggle.is-open {
-  color: white;
-}
-
-.site-nav-toggle > svg {
-  fill: currentColor;
 }

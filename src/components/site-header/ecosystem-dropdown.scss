@@ -11,13 +11,11 @@ ionic-docs.section-cli {
 
   .current {
     cursor: pointer;
+    display: block;
     font-size: 13px;
-    line-height: 1em;
     font-weight: 600;
     color: var(--header-color);
     letter-spacing: .01em;
-    display: inline-block;
-    vertical-align: 0;
     transition: 150ms color ease;
 
     &::after {
