@@ -310,39 +310,6 @@ declare global {
 declare global {
 
   namespace StencilComponents {
-    interface EcosystemDropdown {
-
-    }
-  }
-
-  interface HTMLEcosystemDropdownElement extends StencilComponents.EcosystemDropdown, HTMLStencilElement {}
-
-  var HTMLEcosystemDropdownElement: {
-    prototype: HTMLEcosystemDropdownElement;
-    new (): HTMLEcosystemDropdownElement;
-  };
-  interface HTMLElementTagNameMap {
-    'ecosystem-dropdown': HTMLEcosystemDropdownElement;
-  }
-  interface ElementTagNameMap {
-    'ecosystem-dropdown': HTMLEcosystemDropdownElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      'ecosystem-dropdown': JSXElements.EcosystemDropdownAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface EcosystemDropdownAttributes extends HTMLAttributes {
-
-    }
-  }
-}
-
-
-declare global {
-
-  namespace StencilComponents {
     interface SiteHeader {
       'currentSection': string;
       'isMenuOpen': boolean;

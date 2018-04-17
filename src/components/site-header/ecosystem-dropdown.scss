@@ -1,12 +1,12 @@
 ionic-docs.section-cli {
-  ecosystem-dropdown {
+  .ecosystem-dropdown {
     .current:hover {
       text-shadow: none;
     }
   }
 }
 
-ecosystem-dropdown {
+.ecosystem-dropdown {
   position: relative;
 
   .current {

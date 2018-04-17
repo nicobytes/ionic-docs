@@ -62,6 +62,39 @@ const frameworkDropdownItems = [
   }
 ];
 
+const ecosystemDropdownItems = [
+  {
+    text: 'Forum',
+    url: 'https://forum.ionicframework.com/',
+    className: 'forum'
+  },
+  {
+    text: 'Chat',
+    url: 'https://ionicworldwide.herokuapp.com/',
+    className: 'chat'
+  },
+  {
+    text: 'Blog',
+    url: 'https://blog.ionicframework.com/',
+    className: 'blog'
+  },
+  {
+    text: 'Twitter',
+    url: 'https://twitter.com/Ionicframework',
+    className: 'twitter'
+  },
+  {
+    text: 'Stack',
+    url: 'https://stackoverflow.com/questions/tagged/ionic-framework',
+    className: 'stack-overflow'
+  },
+  {
+    text: 'Swag',
+    url: 'https://shop.ionicframework.com/',
+    className: 'swag'
+  }
+];
+
 @Component({
   tag: 'site-header',
   styleUrl: 'site-header.scss'
@@ -88,6 +121,19 @@ export class SiteHeader {
             </a>
           </li>
         )}
+      </ul>
+    ];
+  }
+
+  renderEcosystemDropdown = dropdown => {
+    return [
+      <a class="current" onClick={dropdown.toggle}>Ecosystem</a>,
+      <ul class={{ 'active': dropdown.isOpen }}>
+        {dropdown.items.map(item => (
+          <li class={item.className}>
+            <a href={item.url} target="_blank">{item.text}</a>
+          </li>
+        ))}
       </ul>
     ];
   }
@@ -126,7 +172,11 @@ export class SiteHeader {
           items={frameworkDropdownItems}
           renderer={this.renderFrameworkDropdown}/>
         <site-search/>
-        <ecosystem-dropdown/>
+        <ctrl-dropdown
+          class="ecosystem-dropdown"
+          autoClose
+          items={ecosystemDropdownItems}
+          renderer={this.renderEcosystemDropdown}/>
         { this.renderGithubLink() }
       </nav>
     );
