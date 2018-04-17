@@ -343,39 +343,6 @@ declare global {
 declare global {
 
   namespace StencilComponents {
-    interface FrameworkDropdown {
-
-    }
-  }
-
-  interface HTMLFrameworkDropdownElement extends StencilComponents.FrameworkDropdown, HTMLStencilElement {}
-
-  var HTMLFrameworkDropdownElement: {
-    prototype: HTMLFrameworkDropdownElement;
-    new (): HTMLFrameworkDropdownElement;
-  };
-  interface HTMLElementTagNameMap {
-    'framework-dropdown': HTMLFrameworkDropdownElement;
-  }
-  interface ElementTagNameMap {
-    'framework-dropdown': HTMLFrameworkDropdownElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      'framework-dropdown': JSXElements.FrameworkDropdownAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface FrameworkDropdownAttributes extends HTMLAttributes {
-      'onDocs-section-changed'?: (event: CustomEvent) => void;
-    }
-  }
-}
-
-
-declare global {
-
-  namespace StencilComponents {
     interface SiteHeader {
       'currentSection': string;
       'isMenuOpen': boolean;

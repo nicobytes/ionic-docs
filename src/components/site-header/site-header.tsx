@@ -23,6 +23,44 @@ const DocsLogo = () => (
   </svg>
 );
 
+const frameworkDropdownItems = [
+  {
+    title: 'Framework',
+    subtitle: 'The UI Toolkit for building highly performant apps',
+    url: '/docs',
+    category: 'framework',
+    className: 'framework'
+  },
+  {
+    title: 'Pro',
+    subtitle: 'Integrated suite of tools & services for shipping apps',
+    url: '/docs/pro',
+    category: 'pro',
+    className: 'pro'
+  },
+  {
+    title: 'CLI',
+    subtitle: 'Ionic command line interface tool',
+    url: '/docs/cli',
+    category: 'cli',
+    className: 'cli',
+    small: true
+  },
+  {
+    title: 'Capacitor',
+    subtitle: 'Cross-platform Native SDK Container',
+    url: 'https://capacitor.ionicframework.com/',
+    className: 'capacitor',
+    small: true
+  },
+  {
+    title: 'Stencil',
+    subtitle: 'Reusable web component compiler',
+    url: 'https://stenciljs.com/',
+    className: 'stencil',
+    small: true
+  }
+];
 
 @Component({
   tag: 'site-header',
@@ -32,6 +70,27 @@ export class SiteHeader {
   @Prop() currentSection: string;
   @Prop() onToggleClick: () => void;
   @Prop() isMenuOpen: boolean;
+  
+  renderFrameworkDropdown = dropdown => {
+    return [
+      <a class="current" onClick={dropdown.toggle}>{dropdown.selected.title}</a>,
+      <ul class={{ 'active': dropdown.isOpen }}>
+        {dropdown.items.map(item =>
+          <li class={{
+            [item.className]: true,
+            'active': dropdown.selected === item,
+            'sm': item.small
+          }}>
+            <a href={item.url}>
+              <strong>{item.title}</strong>
+              <span>{item.subtitle}</span>
+              { item.category ? null : <new-tab-icon /> }
+            </a>
+          </li>
+        )}
+      </ul>
+    ];
+  }
 
   renderGithubLink() {
     switch (this.currentSection) {
@@ -61,7 +120,11 @@ export class SiteHeader {
             { this.isMenuOpen ? <CloseIcon/> : <MenuIcon/> }
         </button>
         <a href="/docs" id="site-logo"><DocsLogo/></a>
-        <framework-dropdown/>
+        <ctrl-dropdown
+          class="framework-dropdown"
+          autoClose
+          items={frameworkDropdownItems}
+          renderer={this.renderFrameworkDropdown}/>
         <site-search/>
         <ecosystem-dropdown/>
         { this.renderGithubLink() }
