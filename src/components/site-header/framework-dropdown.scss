@@ -230,4 +230,20 @@
       top: 33px;
     }
   }
+
+  .new-tab__box {
+    fill: #d1dae8;
+  }
+
+  .new-tab__arrow {
+    fill: #a4aec2;
+  }
+
+  a:hover .new-tab__box {
+    fill: #aad4fd;
+  }
+
+  a:hover .new-tab__arrow {
+    fill: #3d83fb;
+  }
 }

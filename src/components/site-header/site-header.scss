@@ -29,6 +29,42 @@ ionic-docs.section-cli {
 }
 
 
+
+
+/**
+ * New Tab Icon
+ */
+
+.new-tab {
+  height: 0.8em;
+  margin-left: 0.4em;
+  width: auto;
+}
+
+.new-tab__box,
+.new-tab__arrow {
+  transition: fill 200ms ease;
+}
+
+.new-tab__box {
+  fill: #62a6ff;
+}
+
+.new-tab__arrow {
+  fill: var(--header-color);
+}
+
+a:hover .new-tab__box {
+  fill: #96ccff;
+}
+
+a:hover .new-tab__arrow {
+  fill: white;
+}
+
+
+
+
 site-header {
   align-items: center;
   align-self: stretch;

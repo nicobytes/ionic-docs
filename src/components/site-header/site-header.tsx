@@ -16,6 +16,13 @@ const MenuIcon = () => (
   </svg>
 );
 
+const NewTabIcon = () => (
+  <svg class="new-tab" viewBox="0 0 43 42">
+    <rect class="new-tab__box" y="8" width="34" height="34" rx="6"/>
+    <path class="new-tab__arrow" d="M37.078 3.268H23.617V.243h18.626v18.625h-3.026V5.407L16.13 28.494l-2.14-2.139z"/>
+  </svg>
+);
+
 const DocsLogo = () => (
   <svg viewBox="0 0 433 144">
     <title>Ionic Docs</title>
@@ -103,7 +110,7 @@ export class SiteHeader {
   @Prop() currentSection: string;
   @Prop() onToggleClick: () => void;
   @Prop() isMenuOpen: boolean;
-  
+
   renderFrameworkDropdown = dropdown => {
     return [
       <a class="current" onClick={dropdown.toggle}>{dropdown.selected.title}</a>,
@@ -117,7 +124,7 @@ export class SiteHeader {
             <a href={item.url}>
               <strong>{item.title}</strong>
               <span>{item.subtitle}</span>
-              { item.category ? null : <new-tab-icon /> }
+              { item.category ? null : <NewTabIcon/> }
             </a>
           </li>
         )}
@@ -143,13 +150,13 @@ export class SiteHeader {
       case SECTION_FRAMEWORK:
         return (
           <a href="https//github.com/ionic-team/ionic" class="github" target="_blank">
-            GitHub<new-tab-icon class="on-blue"/>
+            GitHub <NewTabIcon/>
           </a>
         );
       case SECTION_CLI:
         return (
           <a href="https://github.com/ionic-team/ionic-cli" class="github" target="_blank">
-            GitHub<new-tab-icon/>
+            GitHub <NewTabIcon/>
           </a>
         );
       default:

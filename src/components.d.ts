@@ -242,39 +242,6 @@ declare global {
 declare global {
 
   namespace StencilComponents {
-    interface NewTabIcon {
-
-    }
-  }
-
-  interface HTMLNewTabIconElement extends StencilComponents.NewTabIcon, HTMLStencilElement {}
-
-  var HTMLNewTabIconElement: {
-    prototype: HTMLNewTabIconElement;
-    new (): HTMLNewTabIconElement;
-  };
-  interface HTMLElementTagNameMap {
-    'new-tab-icon': HTMLNewTabIconElement;
-  }
-  interface ElementTagNameMap {
-    'new-tab-icon': HTMLNewTabIconElement;
-  }
-  namespace JSX {
-    interface IntrinsicElements {
-      'new-tab-icon': JSXElements.NewTabIconAttributes;
-    }
-  }
-  namespace JSXElements {
-    export interface NewTabIconAttributes extends HTMLAttributes {
-
-    }
-  }
-}
-
-
-declare global {
-
-  namespace StencilComponents {
     interface SiteContent {
       'isMenuOpen': boolean;
       'onOverlayClick': () => void;
