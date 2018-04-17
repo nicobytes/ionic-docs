@@ -145,22 +145,13 @@ export class SiteHeader {
     ];
   }
 
-  renderGithubLink() {
+  getGithubLink() {
     switch (this.currentSection) {
-      case SECTION_FRAMEWORK:
-        return (
-          <a href="https//github.com/ionic-team/ionic" class="github" target="_blank">
-            GitHub <NewTabIcon/>
-          </a>
-        );
       case SECTION_CLI:
-        return (
-          <a href="https://github.com/ionic-team/ionic-cli" class="github" target="_blank">
-            GitHub <NewTabIcon/>
-          </a>
-        );
+        return "https://github.com/ionic-team/ionic-cli";
+      case SECTION_FRAMEWORK:
       default:
-        return null;
+        return "https://github.com/ionic-team/ionic";
     }
   }
 
@@ -184,7 +175,7 @@ export class SiteHeader {
           autoClose
           items={ecosystemDropdownItems}
           renderer={this.renderEcosystemDropdown}/>
-        { this.renderGithubLink() }
+        <a href={this.getGithubLink()} class="github" target="_blank">GitHub <NewTabIcon/></a>
       </nav>
     );
   }
