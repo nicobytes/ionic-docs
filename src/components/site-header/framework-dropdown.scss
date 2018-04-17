@@ -14,6 +14,10 @@
     vertical-align: text-top;
     transition: 150ms color ease;
 
+    strong {
+      color: white;
+    }
+
     &::after {
       content: '';
       margin-left: 8px;

@@ -102,17 +102,13 @@ site-header {
 
   #site-logo {
     display: flex;
-    flex-grow: 0;
+    width: 24px;
+    height: 24px;
+    transition: opacity 200ms ease;
 
-    svg {
-      width: 72px;
-      height: 24px;
-      display: inline-block;
-      transition: .2s opacity ease;
-
-      > path {
-        fill: #fff;
-      }
+    > svg {
+      fill: white;
+      width: 100%;
     }
 
     &:hover {
