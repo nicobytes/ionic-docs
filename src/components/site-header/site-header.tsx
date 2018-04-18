@@ -54,8 +54,11 @@ export class SiteHeader {
 
   renderEcosystemDropdown = dropdown => {
     return [
-      <a class="current" onClick={dropdown.toggle}>Ecosystem</a>,
-      <ul class={{ 'active': dropdown.isOpen }}>
+      <a class="ecosystem-toggle" onClick={dropdown.toggle}>
+        Ecosystem
+        <svg viewBox="0 0 33 22"><polygon points="16.5 22 0 0 33 0"></polygon></svg>
+      </a>,
+      <ul class={{ 'ecosystem-panel': true, 'is-active': dropdown.isOpen }}>
         {dropdown.items.map(item => (
           <li class={item.className}>
             <a href={item.url} target="_blank">{item.text}</a>
