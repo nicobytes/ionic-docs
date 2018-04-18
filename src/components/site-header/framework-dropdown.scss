@@ -113,6 +113,10 @@
   font-size: 1.25em;
 }
 
+.framework-dropdown-item:not(.is-external) strong {
+  margin-bottom: 0.2em;
+}
+
 .framework-dropdown-item span {
   color: var(--gray);
   font-weight: 600;
