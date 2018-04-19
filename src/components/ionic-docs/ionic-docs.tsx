@@ -47,7 +47,10 @@ export class IonicDocs {
 
   hostData() {
     return {
-      class: { [`section-${this.currentSection}`]: true },
+      class: {
+        [`section-${this.currentSection}`]: true,
+        'is-menu-open': this.isMenuOpen
+      }
     };
   }
 
@@ -58,11 +61,11 @@ export class IonicDocs {
         isMenuOpen={this.isMenuOpen}
         onToggleClick={this.toggleMenu}/>,
       <site-menu
-        onNavigate={this.closeMenu}
-        isOpen={this.isMenuOpen}/>,
+        onNavigate={this.closeMenu}/>,
       <site-content
         onOverlayClick={this.closeMenu}
-        isMenuOpen={this.isMenuOpen}/>,
+        isMenuOpen={this.isMenuOpen}
+        onClick={this.closeMenu}/>,
       <site-preview-app/>
     ];
   }

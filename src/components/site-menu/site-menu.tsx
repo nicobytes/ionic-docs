@@ -11,7 +11,6 @@ import { versions } from '../../versions';
 export class SiteMenu {
 
   @Prop() onNavigate: () => void;
-  @Prop() isOpen: boolean;
   @State() activeItem: string;
   @State() version = versions[versions.length - 1];
 
@@ -69,12 +68,6 @@ export class SiteMenu {
 
   setActiveItem(text: string) {
     this.activeItem = this.activeItem === text ? null : text;
-  }
-
-  hostData() {
-    return {
-      'class': { 'is-open': this.isOpen }
-    };
   }
 
   render() {
