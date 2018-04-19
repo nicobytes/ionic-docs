@@ -39,6 +39,7 @@ a {
  * Optical centering
  */
 
+.docs-logo__type,
 .ecosystem-dropdown,
 .framework-toggle,
 .github-link {
@@ -79,10 +80,13 @@ a {
 /**
  * Docs logo
  */
+
 .docs-logo {
+  color: white;
   display: flex;
-  width: 24px;
-  height: 24px;
+  font-size: 18px;
+  font-weight: 700;
+  margin-right: 6px;
   transition: opacity 200ms ease;
 }
 
@@ -90,9 +94,15 @@ a {
   opacity: 0.9;
 }
 
-.docs-logo > svg {
-  fill: white;
-  width: 100%;
+.docs-logo__type {
+  letter-spacing: -0.02em;
+}
+
+.docs-logo__mark {
+  fill: currentColor;
+  height: 24px;
+  margin-right: 4px;
+  width: 24px;
 }
 
 

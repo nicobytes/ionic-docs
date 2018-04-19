@@ -15,7 +15,6 @@ export class SiteHeader {
   renderFrameworkDropdown = dropdown => {
     return [
       <div class="framework-toggle">
-        <a class="framework-toggle__prefix" href="/docs">Docs</a>
         <a class="framework-toggle__select" onClick={dropdown.toggle}>
           {dropdown.selected.title}
           <svg viewBox="0 0 33 22"><polygon points="16.5 22 0 0 33 0"></polygon></svg>
@@ -86,7 +85,10 @@ export class SiteHeader {
           class={{ 'nav-toggle': true, 'is-open': this.isMenuOpen }}>
             { this.isMenuOpen ? <Close/> : <Menu/> }
         </button>
-        <a href="/docs" class="docs-logo"><Ionic/></a>
+        <a href="/docs" class="docs-logo">
+          <span class="docs-logo__mark"><Ionic/></span>
+          <span class="docs-logo__type">Docs</span>
+        </a>
         <ctrl-dropdown
           class="framework-dropdown"
           autoClose
